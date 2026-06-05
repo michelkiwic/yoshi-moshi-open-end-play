@@ -382,6 +382,13 @@ body.menu-is-open > .menu-panel {
   background: var(--bg);
 }
 
+.category-bg-art {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.2)),
+    var(--bg-image) center / cover no-repeat,
+    var(--bg);
+}
+
 .category-stage {
   position: sticky;
   top: 0;
