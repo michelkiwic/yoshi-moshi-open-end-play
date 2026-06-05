@@ -5,14 +5,9 @@ const menuToggle = document.querySelector(".menu-toggle");
 const menuClose = document.querySelector(".menu-close");
 const menuLinks = [...document.querySelectorAll(".menu-panel a")];
 const tracks = [...document.querySelectorAll(".copy-track")];
-const categorySections = [...document.querySelectorAll(".category")];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let bubbleSerial = 0;
-let lastScrollY = window.scrollY;
-let lastInputDirection = 0;
 let lastTouchY = 0;
-let isAutoAdvancing = false;
-let queuedAdvanceSection = null;
 let scrollPulseUntil = 0;
 let scrollPulseActive = false;
 
@@ -57,7 +52,6 @@ function scrollToHash() {
 
   target.scrollIntoView({ block: "start", behavior: "auto" });
   renderedScrollY = window.scrollY;
-  lastScrollY = window.scrollY;
   updateScrollLayers(renderedScrollY);
 }
 
@@ -126,70 +120,12 @@ function updateScrollLayers(scrollY) {
 
 let renderedScrollY = window.scrollY;
 
-function maybeAdvanceCategory(scrollY) {
-  const scrollingDown = scrollY > lastScrollY + 0.5 || lastInputDirection > 0;
-
-  if (isAutoAdvancing || !scrollingDown) {
-    lastScrollY = scrollY;
-    return;
-  }
-
-  lastScrollY = scrollY;
-  const viewport = window.innerHeight;
-
-  categorySections.some((section) => {
-    if (!section.querySelector(".parallax-labels")) return false;
-
-    const scrollable = Math.max(1, section.offsetHeight - viewport);
-    const progress = (scrollY - section.offsetTop) / scrollable;
-    const labelPhase = (progress - 0.42) / 0.58;
-    const insideSection = scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight;
-
-    if (!insideSection || labelPhase < 0.99) return false;
-
-    const nextSection = sections[sections.indexOf(section) + 1];
-    if (!nextSection) return true;
-
-    queueAdvance(nextSection);
-
-    return true;
-  });
-}
-
-function queueAdvance(nextSection) {
-  if (queuedAdvanceSection || isAutoAdvancing) return;
-
-  queuedAdvanceSection = nextSection;
-  isAutoAdvancing = true;
-
-  requestAnimationFrame(() => {
-    const target = queuedAdvanceSection;
-    queuedAdvanceSection = null;
-    if (!target) return;
-
-    const inlineScrollBehavior = root.style.scrollBehavior;
-    root.style.scrollBehavior = "auto";
-    window.scrollTo({ top: target.offsetTop, behavior: "auto" });
-    root.style.scrollBehavior = inlineScrollBehavior;
-
-    renderedScrollY = window.scrollY;
-    lastScrollY = window.scrollY;
-    updateScrollLayers(renderedScrollY);
-
-    window.setTimeout(() => {
-      isAutoAdvancing = false;
-      lastScrollY = window.scrollY;
-    }, 60);
-  });
-}
-
 function watchScrollPosition() {
   const currentScrollY = window.scrollY;
 
   if (Math.abs(currentScrollY - renderedScrollY) > 0.5) {
     renderedScrollY = currentScrollY;
     updateScrollLayers(renderedScrollY);
-    maybeAdvanceCategory(renderedScrollY);
   }
 
   requestAnimationFrame(watchScrollPosition);
@@ -203,14 +139,12 @@ function syncScrollLayers() {
 
   renderedScrollY = window.scrollY;
   updateScrollLayers(renderedScrollY);
-  maybeAdvanceCategory(renderedScrollY);
   keepScrollLayersAwake(260);
 }
 
 function pulseScrollLayers() {
   renderedScrollY = window.scrollY;
   updateScrollLayers(renderedScrollY);
-  maybeAdvanceCategory(renderedScrollY);
 
   if (performance.now() < scrollPulseUntil) {
     requestAnimationFrame(pulseScrollLayers);
@@ -231,10 +165,6 @@ function keepScrollLayersAwake(duration = 700) {
 }
 
 function noteScrollIntent(deltaY) {
-  if (Math.abs(deltaY) > 0.5) {
-    lastInputDirection = deltaY > 0 ? 1 : -1;
-  }
-
   keepScrollLayersAwake();
 }
 
