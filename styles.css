@@ -851,6 +851,18 @@ body.menu-is-open > .menu-panel {
     transform: rotate(-0.7deg);
   }
 
+  #face-b .category-copy {
+    z-index: 1;
+  }
+
+  #face-b .parallax-labels {
+    z-index: 2;
+  }
+
+  #face-b .category-media {
+    z-index: 4;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
