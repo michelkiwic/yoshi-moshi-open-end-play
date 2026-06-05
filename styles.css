@@ -473,6 +473,25 @@ body.menu-is-open > .menu-panel {
   transform: translate3d(-50%, var(--label-a-y), 0) rotate(-3deg);
 }
 
+.parallax-puppet-b {
+  top: 24%;
+  left: 72%;
+  transform: translate3d(-50%, var(--label-b-y), 0) rotate(4deg);
+}
+
+.parallax-labels-one .parallax-puppet {
+  height: min(132vh, 1300px);
+  max-width: 52vw;
+}
+
+.parallax-labels-one .parallax-puppet-a {
+  left: 24%;
+}
+
+.parallax-labels-one .parallax-puppet-b {
+  left: 70%;
+}
+
 .eyebrow {
   margin: 0 0 18px;
   font-family: Oswald, Arial, sans-serif;
@@ -764,6 +783,26 @@ body.menu-is-open > .menu-panel {
   .parallax-puppet-a {
     top: 18%;
     left: 58%;
+  }
+
+  .parallax-puppet-b {
+    top: 46%;
+    left: 42%;
+  }
+
+  .parallax-labels-one .parallax-puppet {
+    height: min(76vh, 620px);
+    max-width: 58vw;
+  }
+
+  .parallax-labels-one .parallax-puppet-a {
+    top: 13%;
+    left: 62%;
+  }
+
+  .parallax-labels-one .parallax-puppet-b {
+    top: 50%;
+    left: 38%;
   }
 
   .category h2,
