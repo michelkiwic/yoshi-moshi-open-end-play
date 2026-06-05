@@ -472,7 +472,7 @@ body.menu-is-open > .menu-panel {
 
 .category-bg-art {
   background:
-    linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.2)),
+    linear-gradient(var(--bg-overlay, rgba(0, 0, 0, 0.18)), var(--bg-overlay, rgba(0, 0, 0, 0.2))),
     var(--bg-image) center / cover no-repeat,
     var(--bg);
 }
