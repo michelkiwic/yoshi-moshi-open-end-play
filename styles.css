@@ -366,6 +366,94 @@ body.menu-is-open > .menu-panel {
   transform: rotate(2deg) skewY(-2deg);
 }
 
+.scroll-cue {
+  position: absolute;
+  z-index: 2;
+  top: calc(50% + clamp(210px, 21vw, 270px));
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  color: var(--ink);
+  font-family: Teko, Impact, sans-serif;
+  font-size: clamp(22px, 2.1vw, 40px);
+  font-weight: 600;
+  line-height: 0.78;
+  text-transform: uppercase;
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.scroll-cue span {
+  display: block;
+  transform: skewX(-8deg);
+  animation: scroll-word-flicker 2.8s steps(2, end) infinite;
+}
+
+.scroll-cue i {
+  position: relative;
+  display: block;
+  width: 2px;
+  height: clamp(34px, 4.4vh, 58px);
+  background: currentColor;
+  animation: scroll-arrow-drop 1.15s cubic-bezier(0.61, 0, 0.31, 1) infinite;
+}
+
+.scroll-cue i::before,
+.scroll-cue i::after {
+  position: absolute;
+  bottom: 0;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  content: "";
+  transform-origin: right center;
+}
+
+.scroll-cue i::before {
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.scroll-cue i::after {
+  left: 0;
+  transform: rotate(135deg);
+  transform-origin: left center;
+}
+
+.scroll-cue:hover span {
+  transform: skewX(-8deg) translateY(-2px);
+}
+
+@keyframes scroll-arrow-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scaleY(0.72);
+  }
+
+  42% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(16px) scaleY(0.82);
+  }
+}
+
+@keyframes scroll-word-flicker {
+  0%,
+  100% {
+    color: var(--ink);
+    -webkit-text-stroke: 0;
+  }
+
+  50% {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--red);
+  }
+}
+
 .hero-lolly {
   position: absolute;
   right: max(18px, 8vw);
@@ -740,6 +828,17 @@ body.menu-is-open > .menu-panel {
     width: 80px;
   }
 
+  .scroll-cue {
+    top: auto;
+    bottom: 24px;
+    font-size: 24px;
+    gap: 7px;
+  }
+
+  .scroll-cue i {
+    height: 34px;
+  }
+
   .category {
     min-height: 200svh;
   }
@@ -876,5 +975,10 @@ body.menu-is-open > .menu-panel {
 
   .copy-track {
     transform: none !important;
+  }
+
+  .scroll-cue span,
+  .scroll-cue i {
+    animation: none !important;
   }
 }
