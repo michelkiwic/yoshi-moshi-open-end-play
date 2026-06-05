@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yoshi + Moshi | Open End Play</title>
+    <meta
+      name="description"
+      content="Prototype scroll website for Yoshi + Moshi by Nina Staehli."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300..700&family=Teko:wght@300..700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="bubbles" aria-hidden="true">
+      <svg class="bubble-defs" focusable="false" aria-hidden="true">
+        <defs>
+          <symbol id="bubble-template" viewBox="0 0 66 66">
+            <circle class="bubble-head" cx="33" cy="33" r="31"></circle>
+            <circle class="bubble-eye" cx="23" cy="25" r="4.5"></circle>
+            <circle class="bubble-eye" cx="43" cy="25" r="4.5"></circle>
+            <circle class="bubble-mouth" cx="33" cy="44" r="4.5"></circle>
+          </symbol>
+          <mask id="bubble-inverted-mask" maskUnits="userSpaceOnUse">
+            <rect width="66" height="66" fill="white"></rect>
+            <circle cx="23" cy="25" r="4.5" fill="black"></circle>
+            <circle cx="43" cy="25" r="4.5" fill="black"></circle>
+            <circle cx="33" cy="44" r="4.5" fill="black"></circle>
+          </mask>
+          <symbol id="bubble-template-inverted" viewBox="0 0 66 66">
+            <circle class="bubble-head-inverted" cx="33" cy="33" r="31" mask="url(#bubble-inverted-mask)"></circle>
+          </symbol>
+        </defs>
+      </svg>
+    </div>
+
+    <header class="site-header">
+      <a
+        class="side-icon side-icon-left"
+        href="https://www.instagram.com/ninastaehli/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Open Nina Staehli on Instagram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="4" y="4" width="16" height="16" rx="5"></rect>
+          <circle cx="12" cy="12" r="3.7"></circle>
+          <circle class="dot" cx="17" cy="7" r="1"></circle>
+        </svg>
+      </a>
+
+      <a class="brand" href="#top" aria-label="Back to top">Yoshi + Moshi</a>
+
+      <button class="side-icon side-icon-right menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <nav class="menu-panel" aria-label="Main menu">
+      <button class="menu-close" type="button" aria-label="Close menu">
+        <span></span>
+        <span></span>
+      </button>
+      <a href="#humor">No Humor</a>
+      <a href="#kings">Kings + Queers</a>
+      <a href="#tour">Movie World Tour</a>
+      <a href="#feast">Odd Little Feast</a>
+      <a href="#face">Face Yoshi</a>
+      <a href="#log">Open End Log</a>
+      <a href="#info">Info + Contact</a>
+    </nav>
+
+    <main id="top">
+      <section class="hero snap-section" data-ui="#111111" data-bubble="#111111">
+        <h1 class="open-title" aria-label="Open End Play">
+          <span class="title-word" data-word="Open">Open</span>
+          <span class="title-word" data-word="End">End</span>
+          <span class="title-word" data-word="Play">Play</span>
+        </h1>
+        <img class="hero-lolly" src="assets/lolly-yoshi-moshi.png" alt="Yoshi and Moshi lollipop character artwork">
+      </section>
+
+      <section
+        class="category snap-section category-image"
+        id="humor"
+        style="--bg:#fe3e29; --fg:#f8f6ed; --accent:#1a1a1a;"
+        data-ui="#f8f6ed"
+        data-bubble="#f8f6ed"
+      >
+        <div class="category-stage">
+          <div class="category-copy">
+            <div class="copy-track">
+              <p class="eyebrow">Category 01</p>
+              <h2>No humor<br>= no entry</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                vitae justo at arcu tempor blandit. Aliquam erat volutpat, sed
+                risus justo, rhoncus non mi sed, luctus varius lectus.
+              </p>
+              <p>
+                Curabitur ut libero sit amet risus cursus convallis. Suspendisse
+                potenti. Integer ac mauris vel sem placerat sodales.
+              </p>
+            </div>
+          </div>
+          <figure class="category-media lollipop-media">
+            <img src="assets/lolly-yoshi-moshi.png" alt="Yoshi + Moshi character lollipop">
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="category snap-section category-image category-wide"
+        id="kings"
+        style="--bg:#83a0bf; --fg:#171717; --accent:#f8f6ed;"
+        data-ui="#171717"
+        data-bubble="#171717"
+      >
+        <div class="category-stage">
+          <div class="category-copy">
+            <div class="copy-track">
+              <p class="eyebrow">Category 02</p>
+              <h2>Kings + queers<br>of the world</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                lacinia justo nec massa volutpat, vitae pulvinar sem faucibus.
+                Pellentesque habitant morbi tristique senectus.
+              </p>
+              <p>
+                Nulla facilisi. Praesent luctus, lectus vel dignissim aliquam,
+                eros augue dictum sapien, non rhoncus leo risus nec urna.
+              </p>
+            </div>
+          </div>
+          <div class="parallax-labels" aria-hidden="true">
+            <span class="parallax-word parallax-word-a">2A</span>
+            <span class="parallax-word parallax-word-b">2B</span>
+          </div>
+          <figure class="category-media wide-media">
+            <img src="assets/yoshi-moshi-web.jpg" alt="Yoshi + Moshi performance portrait">
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="category snap-section category-image category-wide"
+        id="tour"
+        style="--bg:#f6dc00; --fg:#0c5f46; --accent:#fe3e29;"
+        data-ui="#0c5f46"
+        data-bubble="#0c5f46"
+      >
+        <div class="category-stage">
+          <div class="category-copy">
+            <div class="copy-track">
+              <p class="eyebrow">Category 03</p>
+              <h2>Movie world<br>tour</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                consequat, libero non viverra hendrerit, magna orci facilisis
+                neque, nec vulputate sem tellus nec nisl.
+              </p>
+              <p>
+                Vivamus dictum massa vel nibh mattis, in porttitor sapien
+                laoreet. Fusce gravida, lacus in varius elementum, risus mi
+                pharetra neque.
+              </p>
+            </div>
+          </div>
+          <div class="parallax-labels" aria-hidden="true">
+            <span class="parallax-word parallax-word-a">3A</span>
+            <span class="parallax-word parallax-word-b">3B</span>
+          </div>
+          <figure class="category-media">
+            <img src="assets/stills-1.jpg" alt="Yoshi + Moshi film still">
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="category snap-section category-plain"
+        id="feast"
+        style="--bg:#1a1a1a; --fg:#f8f6ed; --accent:#ff3f2e;"
+        data-ui="#f8f6ed"
+        data-bubble="#f8f6ed"
+      >
+        <div class="category-stage">
+          <div class="category-copy">
+            <div class="copy-track">
+              <p class="eyebrow">Category 04</p>
+              <h2>Odd little<br>feast</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                nec neque vel libero condimentum bibendum. Nam tempor sed mauris
+                et feugiat.
+              </p>
+              <p>
+                Sed vitae lectus et massa fermentum semper. Etiam gravida
+                posuere urna, sed vulputate mi laoreet a.
+              </p>
+            </div>
+          </div>
+          <div class="plain-field" aria-hidden="true">
+            <span>PLAY</span>
+            <span>OPEN</span>
+            <span>END</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="category snap-section category-image category-wide"
+        id="face"
+        style="--bg:#f2a0c1; --fg:#171717; --accent:#f8f6ed;"
+        data-ui="#171717"
+        data-bubble="#171717"
+      >
+        <div class="category-stage">
+          <div class="category-copy">
+            <div class="copy-track">
+              <p class="eyebrow">Category 05</p>
+              <h2>Face<br>Yoshi</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                porttitor lorem vitae erat molestie, vitae ultrices enim
+                imperdiet.
+              </p>
+              <p>
+                Maecenas finibus arcu ac ultrices luctus. Cras sodales
+                consequat ligula, non pretium lectus commodo sed.
+              </p>
+            </div>
+          </div>
+          <div class="parallax-labels" aria-hidden="true">
+            <span class="parallax-word parallax-word-a">5A</span>
+            <span class="parallax-word parallax-word-b">5B</span>
+          </div>
+          <figure class="category-media">
+            <img src="assets/stills-2.jpg" alt="Yoshi + Moshi stage still">
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="category snap-section category-image category-wide"
+        id="log"
+        style="--bg:#55b98f; --fg:#151515; --accent:#f8f6ed;"
+        data-ui="#151515"
+        data-bubble="#151515"
+      >
+        <div class="category-stage">
+          <div class="category-copy">
+            <div class="copy-track">
+              <p class="eyebrow">Category 06</p>
+              <h2>Open end<br>log</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus blandit eros quis velit tincidunt, quis efficitur erat
+                ultricies.
+              </p>
+              <p>
+                Proin congue, lectus ut interdum viverra, ipsum magna semper
+                risus, vitae suscipit justo ex id leo.
+              </p>
+            </div>
+          </div>
+          <div class="parallax-labels" aria-hidden="true">
+            <span class="parallax-word parallax-word-a">6A</span>
+            <span class="parallax-word parallax-word-b">6B</span>
+          </div>
+          <figure class="category-media">
+            <img src="assets/stills-4.jpg" alt="Yoshi + Moshi open end log still">
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="info-footer snap-section"
+      id="info"
+      data-ui="#f8f6ed"
+      data-bubble="#f8f6ed"
+    >
+      <div class="footer-grid">
+        <div class="footer-intro">
+          <p class="eyebrow">More information</p>
+          <h2>Yoshi + Moshi<br>Open End Play</h2>
+          <p>
+            Prototype space for future texts, exhibition notes, image credits,
+            press material, collaborators, and performance documentation.
+          </p>
+        </div>
+
+        <nav class="footer-col" aria-label="Contact">
+          <p class="footer-title">Contact</p>
+          <a href="mailto:yoshi-moshi@yoshi-moshi.com">yoshi-moshi@yoshi-moshi.com</a>
+          <a href="https://yoshi-moshi.com/" target="_blank" rel="noopener">Official Yoshi + Moshi</a>
+          <a href="https://ninastaehli.com/" target="_blank" rel="noopener">Nina Staehli</a>
+        </nav>
+
+        <nav class="footer-col" aria-label="Legal">
+          <p class="footer-title">Legal</p>
+          <a href="#">Imprint</a>
+          <a href="#">Privacy policy</a>
+          <a href="#">Cookie settings</a>
+        </nav>
+
+        <nav class="footer-col" aria-label="Prototype credits">
+          <p class="footer-title">Credits</p>
+          <a href="https://www.instagram.com/ninastaehli/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://larevoltosa.es/productos" target="_blank" rel="noopener">Motion reference</a>
+          <a href="#top">Back to top</a>
+        </nav>
+      </div>
+      <p class="footer-logo" aria-hidden="true">Yoshi + Moshi</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
