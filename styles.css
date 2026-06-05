@@ -448,6 +448,24 @@ body.menu-is-open > .menu-panel {
   transform: translate3d(-50%, var(--label-b-y), 0) rotate(4deg);
 }
 
+.parallax-puppet {
+  position: absolute;
+  display: block;
+  width: auto;
+  height: min(66vh, 650px);
+  max-width: 26vw;
+  object-fit: contain;
+  transform-origin: center;
+  filter: drop-shadow(10px 12px 0 color-mix(in srgb, var(--accent) 78%, transparent));
+  will-change: transform;
+}
+
+.parallax-puppet-a {
+  top: 4%;
+  left: 51%;
+  transform: translate3d(-50%, var(--label-a-y), 0) rotate(-3deg);
+}
+
 .eyebrow {
   margin: 0 0 18px;
   font-family: Oswald, Arial, sans-serif;
@@ -729,6 +747,16 @@ body.menu-is-open > .menu-panel {
   .parallax-word-b {
     top: 55%;
     left: 42%;
+  }
+
+  .parallax-puppet {
+    height: min(58vh, 520px);
+    max-width: 44vw;
+  }
+
+  .parallax-puppet-a {
+    top: 18%;
+    left: 58%;
   }
 
   .category h2,
