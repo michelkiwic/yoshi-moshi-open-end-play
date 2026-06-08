@@ -518,6 +518,16 @@ body.menu-is-open > .menu-panel {
   font-size: clamp(16px, 1.05vw, 21px);
 }
 
+.humor-tape-x {
+  display: block;
+  width: clamp(230px, 25vw, 470px);
+  height: auto;
+  margin: clamp(48px, 4vw, 72px) 0 0 clamp(18px, 5vw, 90px);
+  transform: rotate(-8deg);
+  transform-origin: 46% 42%;
+  filter: drop-shadow(8px 10px 0 rgba(0, 0, 0, 0.22));
+}
+
 .category-media {
   position: relative;
   z-index: 2;
@@ -829,6 +839,12 @@ body.menu-is-open > .menu-panel {
   .category p:not(.eyebrow),
   .footer-intro p:not(.eyebrow) {
     margin-top: 17px;
+  }
+
+  .humor-tape-x {
+    width: min(62vw, 300px);
+    margin-top: 42px;
+    margin-left: 12vw;
   }
 
   .category-media,
